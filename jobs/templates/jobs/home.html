@@ -1,3 +1,4 @@
+{% load static %}
 
 <!doctype html>
 <html lang="en">
@@ -44,13 +45,13 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                       <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Home</a>
+                          <a class="nav-link active" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Resume</a>
+                          <a class="nav-link active" href="#">Resume</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">Blog</a>
+                          <a class="nav-link active" href="#">Blog</a>
                         </li>
                       </ul>
                     </div>
@@ -62,10 +63,15 @@
   <section class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading">Hi, Im David!</h1>
-      <p class="lead text-muted">Hello, my name is David Greene and i love to make Django Websites. I am in love with a peruvian queen names Tania lopez.She is definitely insane but i cant get enough</p>
+     
+      <p class="lead text-muted">Hello, my name is David Greene and i 
+          love to make Django Websites. 
+          I am in love with a peruvian queen named Tania lopez.She is definitely 
+          insane but i cant get enough</p>
       <p>
         <a href="mailto:daone764@gmail.com" class="btn btn-primary my-2">Email me</a>
         <a href="#" class="btn btn-secondary my-2">I want to blog!!</a>
+        <img src="{% static 'Danica_logo.jpg' %}" alt="Dancia logo"/>
       </p>
     </div>
   </section>
@@ -80,6 +86,7 @@
           <div class="card mb-4 shadow-sm">
             <img class="card-img-top" src="{{ job.image.url }}" />
             <div class="card-body">
+              <p class="card-text">{{ job.title }}</p>
               <p class="card-text">{{ job.summary }}</p>
               </div>
             </div>
