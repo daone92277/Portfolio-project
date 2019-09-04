@@ -22,7 +22,8 @@ import blog.views
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
-    path("", jobs.views.home, name = "home"),
-   # path("blog/", blog.views.blog_home, name = "blog"),
+    # path("", jobs.views.home, name = "home"),
+    path("", include("jobs.urls")),
+    #path("blog/", blog.views.blog_home, name = "blog"),
     path("blog/", include("blog.urls")),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

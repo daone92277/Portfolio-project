@@ -1,7 +1,7 @@
-{% load static %}
-
 <!doctype html>
 <html lang="en">
+{% load staticfiles %}
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,20 +38,20 @@
   <body>
     <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <a class="navbar-brand" href="#">David Greene</a>
+                    <a class="navbar-brand" href="{ % url 'home' % }">David Greene</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                       <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                          <a class="nav-link active" href="#">Home</a>
+                          <a class="nav-link active" href="https://www.linkedin.com/in/david-greene-76186813b/">Linkedin</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link active" href="#">Resume</a>
+                          <a class="nav-link active" href="{% static 'DavidGreeneResume2019.pdf' %}">Resume</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link active" href="#">Blog</a>
+                          <a class="nav-link active" href="{ % url 'blog' % }">Blog</a>
                         </li>
                       </ul>
                     </div>
@@ -66,12 +66,13 @@
      
       <p class="lead text-muted">Hello, my name is David Greene and i 
           love to make Django Websites. 
-          I am in love with a peruvian queen named Tania lopez.She is definitely 
-          insane but i cant get enough</p>
+          I am in love with a peruvian queen named Tania lopez. She is definitely 
+          a handful but i cant get enough</p>
       <p>
         <a href="mailto:daone764@gmail.com" class="btn btn-primary my-2">Email me</a>
-        <a href="#" class="btn btn-secondary my-2">I want to blog!!</a>
-        <img src="{% static 'Danica_logo.jpg' %}" alt="Dancia logo"/>
+        <a href="{ % url 'blog' % }" class="btn btn-secondary my-2">I want to blog!!</a>
+        <br>
+        <img src="{% static 'Dancia_logo.jpg' %}" alt="Dancia logo"/>
       </p>
     </div>
   </section>

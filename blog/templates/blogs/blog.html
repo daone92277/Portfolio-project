@@ -1,5 +1,7 @@
 <!doctype html>
 <html lang="en">
+{% load staticfiles %}
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,27 +36,28 @@
     <link href="album.css" rel="stylesheet">
   </head>
   <body>
-    <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <a class="navbar-brand" href="#">David Greene</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                      <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                          <a class="nav-link active" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link active" href="#">Resume</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link active" href="#">Blog</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </nav>
+      <header>
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                  <a class="navbar-brand" href="{% url 'home' % }">David Greene</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="https://www.linkedin.com/in/david-greene-76186813b/">Linkedin</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" href="{% static 'DavidGreeneResume2019.pdf' %}">Resume</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'blog' %}">Blog</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
 </header>
+
 
 <main role="main">
 <div class="container">
@@ -64,7 +67,7 @@
 <h2>Latest Posts</h2>
 <hr>
 {% for blog in blog.all %}
-<a href = ""><h3>{{ blog.title }}</h3></a>
+<a href = "{% url 'detail' blog.id %}"><h3>{{ blog.title }}</h3></a>
 {{ blog.pub_date }}
 <br>
 <img src="{{ blog.image.url }}" height=200 width=200/>
